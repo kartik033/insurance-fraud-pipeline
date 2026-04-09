@@ -11,6 +11,11 @@ and Snowflake.
 <img width="4200" height="2100" alt="pipeline_diagram" src="https://github.com/user-attachments/assets/c786a530-ac4c-4dad-b31d-f6627678337a" />
 )
 
+## pipeline
+
+<img width="2700" height="3300" alt="Generated_chart__pipeline_diagram_final png" src="https://github.com/user-attachments/assets/64f90726-20ab-432d-876d-809506cb1551" />
+
+
 
 
 ---
