@@ -109,7 +109,7 @@ and Snowflake.
 ---
 
 ## Project Structure
-
+'''
 insurance-fraud-pipeline/
 ├── README.md
 ├── architecture/
@@ -128,9 +128,7 @@ insurance-fraud-pipeline/
 │ └── task_definition.sql
 └── sagemaker/
 └── train_xgboost.ipynb
-
-
----
+'''
 
 ## Key Engineering Decisions
 
