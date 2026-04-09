@@ -109,26 +109,33 @@ and Snowflake.
 ---
 
 ## Project Structure
-'''
+```
 insurance-fraud-pipeline/
+│
 ├── README.md
 ├── architecture/
-│ └── pipeline_diagram.png
+│   └── pipeline_diagram.png
+│
 ├── glue_jobs/
-│ ├── 01_feature_engineering.py
-│ ├── 02_rule_based_flagging.py
-│ ├── 03_sagemaker_trigger.py
-│ └── 04_snowflake_loader.py
+│   ├── 01_feature_engineering.py
+│   ├── 02_rule_based_flagging.py
+│   ├── 03_sagemaker_trigger.py
+│   └── 04_snowflake_loader.py
+│
+├── step_functions/
+│   └── pipeline_state_machine.json
+│
 ├── snowflake/
-│ ├── ddl/
-│ │ ├── fraud_alerts_stage.sql
-│ │ └── fraud_alerts.sql
-│ └── pipelines/
-│ ├── stream_definition.sql
-│ └── task_definition.sql
+│   ├── ddl/
+│   │   ├── fraud_alerts_stage.sql
+│   │   └── fraud_alerts.sql
+│   └── pipelines/
+│       ├── stream_definition.sql
+│       └── task_definition.sql
+│
 └── sagemaker/
-└── train_xgboost.ipynb
-'''
+    └── train_xgboost.ipynb
+```
 
 ## Key Engineering Decisions
 
