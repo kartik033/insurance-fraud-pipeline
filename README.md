@@ -3,6 +3,7 @@
 An end-to-end data engineering pipeline that detects fraudulent insurance 
 claims using rule-based flagging and machine learning scoring, built on AWS 
 and Snowflake.
+"Orchestrated all 4 pipeline stages using AWS Step Functions with automatic retry logic, failure routing, and daily EventBridge scheduling — eliminating manual job triggers."
 
 ---
 
@@ -108,6 +109,25 @@ and Snowflake.
 ---
 
 ## Project Structure
+
+insurance-fraud-pipeline/
+├── README.md
+├── architecture/
+│ └── pipeline_diagram.png
+├── glue_jobs/
+│ ├── 01_feature_engineering.py
+│ ├── 02_rule_based_flagging.py
+│ ├── 03_sagemaker_trigger.py
+│ └── 04_snowflake_loader.py
+├── snowflake/
+│ ├── ddl/
+│ │ ├── fraud_alerts_stage.sql
+│ │ └── fraud_alerts.sql
+│ └── pipelines/
+│ ├── stream_definition.sql
+│ └── task_definition.sql
+└── sagemaker/
+└── train_xgboost.ipynb
 
 
 ---
