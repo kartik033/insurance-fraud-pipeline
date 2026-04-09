@@ -8,7 +8,8 @@ and Snowflake.
 
 ## Architecture
 
-![Pipeline Architecture](architecture/pipeline_diagram.png)
+![Pipeline Architecture](<img width="4200" height="2100" alt="pipeline_diagram" src="https://github.com/user-attachments/assets/c786a530-ac4c-4dad-b31d-f6627678337a" />
+)
 
 
 
