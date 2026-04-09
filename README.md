@@ -109,3 +109,45 @@ and Snowflake.
 
 ## Project Structure
 
+
+---
+
+## Key Engineering Decisions
+
+- **Medallion Architecture** — raw → curated → flagged → scored layers
+  keep data lineage clean and each stage independently reprocessable
+- **Job Bookmarks** — Glue only processes new S3 files on each run,
+  avoiding full rescans on large datasets
+- **In-Glue Inference** — XGBoost model loaded directly into Glue workers
+  via `sc.broadcast()` eliminates need for a persistent SageMaker endpoint,
+  reducing cost for batch workloads
+- **Snowflake CDC** — Streams + Tasks decouple the loading layer from
+  the transformation layer, enabling near-real-time production updates
+- **Partitioned Parquet** — all intermediate layers partitioned by
+  year/month/type for efficient predicate pushdown in downstream queries
+
+---
+
+## Setup & Reproduction
+
+### Prerequisites
+- AWS account with Glue, S3, SageMaker access
+- Snowflake account (free trial works)
+- Python 3.9+, AWS CLI configured
+
+### Steps
+1. Download dataset from Kaggle link above
+2. Create S3 bucket and upload raw CSVs following folder structure
+3. Create `GlueFraudPipelineRole` IAM role with Glue + S3 + SageMaker policies
+4. Run Glue crawlers on all 4 raw tables
+5. Run Glue jobs in order: 01 → 02 → 03 → 04
+6. Run Snowflake DDL scripts in `snowflake/` folder
+7. Query `FRAUD_SUMMARY_REPORT` for final output
+
+---
+
+## Author
+
+**Kartik** — Data Engineer  
+[GitHub](https://github.com/kartik033)
+
